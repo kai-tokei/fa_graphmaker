@@ -1,0 +1,28 @@
+digraph qf {
+    rankdir = LR;
+    graph [label="DFA", fontsize=16];
+
+    input [shape=point, style=invisible];
+
+
+    q_0[label=<q<sub>0</sub>>,shape=circle];
+    q_1[label=<q<sub>1</sub>>,shape=circle];
+    q_2[label=<q<sub>2</sub>>,shape=doublecircle];
+    q_3[label=<q<sub>3</sub>>,shape=circle];
+
+    input -> q_0;
+
+    q_0 -> q_1 [label=0];
+    q_0 -> q_3 [label=1];
+
+    q_1 -> q_3 [label=0];
+    q_1 -> q_1 [label=1];
+    q_1 -> q_2 [label=1];
+
+    q_2 -> q_3 [label=1];
+
+    q_3 -> q_2 [label=0];
+    q_3 -> q_0 [label=1];
+
+}
+

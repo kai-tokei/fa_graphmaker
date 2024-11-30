@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <vector>
 
 #include "./vertex.cpp"
@@ -43,7 +44,18 @@ int main(int argc, char *argv[])
     }
     dot_code += "\n    input -> q_0;\n";
 
-    cout << dot_code << endl;
+    // 頂点の接続関係をDotコードに変換
+    dot_code += "\n";
+    for (int i = 0; i < vtxs.size(); i++)
+    {
+        dot_code += vtxs[i].to_str() + "\n";
+    }
+
+    dot_code += dot_footer + "\n";
+
+    // Dotファイルを作成
+    ofstream file("graph.dot");
+    file << dot_code;
 
     return 0;
 }
