@@ -35,7 +35,6 @@ struct Vertex
                 out += "    ";
                 out += "q_" + to_string(id) + " -> " + "q_" + to_string(to[i][j]);
                 out += " [label=" + to_string(i) + "];";
-                // out += " " + lambda;
                 out += "\n";
             }
         }
