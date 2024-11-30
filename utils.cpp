@@ -1,7 +1,9 @@
-#pragma once
+#include <string>
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <vector>
+
 #include "vertex.cpp"
 
 using namespace std;
@@ -68,4 +70,45 @@ vector<Vertex> read_graph_data(string path)
     }
 
     return vtxs;
+}
+
+// ファイル読み込み
+string read_file(string path)
+{
+    ifstream file(path);
+    string line, out = "";
+
+    // ファイルが開けるか
+    if (!file.is_open())
+    {
+        cerr << "Error: Cannot open file " << path << endl;
+        return "";
+    }
+
+    while (getline(file, line))
+    {
+        out += line + '\n';
+    }
+    return out;
+}
+
+// ファイル書き込み
+void write_file(string path, string content)
+{
+    ofstream file(path);
+
+    // ファイルが開けるか
+    if (!file.is_open())
+    {
+        cerr << "Error: Cannot open file " << path << endl;
+        return;
+    }
+
+    file << content << endl;
+}
+
+// Dotのノードを生成する
+string gen_node_dot(int id, string name, string shape = "circle")
+{
+    return "q_" + to_string(id) + "[label=<q<sub>" + name + "</sub>>,shape=" + shape + "];";
 }

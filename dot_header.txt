@@ -1,0 +1,6 @@
+digraph qf {
+    rankdir = LR;
+    graph [label="DFA", fontsize=16];
+
+    input [shape=point, style=invisible];
+
