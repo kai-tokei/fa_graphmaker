@@ -5,28 +5,28 @@ digraph qf {
     input [shape=point, style=invisible];
 
 
-    q_0[label=<q<sub>a</sub>>,shape=circle];
-    q_1[label=<q<sub>b</sub>>,shape=circle];
-    q_2[label=<q<sub>c</sub>>,shape=circle];
-    q_3[label=<q<sub>d</sub>>,shape=circle];
-    q_4[label=<q<sub>e</sub>>,shape=circle];
+    q_0[label=<q<sub>0</sub>>,shape=circle];
+    q_1[label=<q<sub>1</sub>>,shape=doublecircle];
+    q_2[label=<q<sub>2</sub>>,shape=circle];
+    q_3[label=<q<sub>3</sub>>,shape=circle];
+    q_4[label=<q<sub>4</sub>>,shape=doublecircle];
 
     input -> q_0;
 
     q_0 -> q_3 [label=0];
-    q_0 -> q_4 [label=1];
+    q_0 -> q_1 [label=1];
 
-    q_1 -> q_2 [label=0];
+    q_1 -> q_3 [label=0];
     q_1 -> q_2 [label=1];
 
-    q_2 -> q_2 [label=0];
-    q_2 -> q_1 [label=1];
+    q_2 -> q_4 [label=0];
+    q_2 -> q_2 [label=1];
 
-    q_3 -> q_2 [label=0];
+    q_3 -> q_4 [label=0];
     q_3 -> q_2 [label=1];
 
-    q_4 -> q_0 [label=0];
-    q_4 -> q_1 [label=1];
+    q_4 -> q_4 [label=0];
+    q_4 -> q_4 [label=1];
 
 }
 
